@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   root "questions#index"
 
+  namespace :admin do
+    root "questions#index"
+  end
+
 end
