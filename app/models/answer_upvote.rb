@@ -1,0 +1,2 @@
+class AnswerUpvote < ApplicationRecord
+end
