@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20180912081535) do
   end
 
   create_table "question_upvotes", force: :cascade do |t|
+    t.integer "answer_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
