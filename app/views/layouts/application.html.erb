@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
   <head>
-    <title>StackOverflow</title>
+    <title>Stack_Overflow</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +9,6 @@
   </head>
 
   <body>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
 
         <% if current_user %>
           Hi, <%= current_user.email %>
@@ -20,6 +18,8 @@
             <%= link_to('註冊', new_user_registration_path) %> |
             <%= link_to('登入', new_user_session_path) %>
         <% end %>
+
+        
     <%= yield %>
   </body>
 </html>
