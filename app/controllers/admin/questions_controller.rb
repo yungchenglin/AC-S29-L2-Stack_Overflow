@@ -1,6 +1,12 @@
 class Admin::QuestionsController < ApplicationController
 
-  def index
+  before_action :authenticate_user!
+  before_action :authenticate_admin
+
+
+   def index
+    @users = User.all.order(created_at: :desc)
   end
+  
   
 end
