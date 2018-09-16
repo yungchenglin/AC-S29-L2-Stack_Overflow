@@ -1,0 +1,30 @@
+<h1>Please write your question</h1>
+
+<!-- Question form --> 
+
+<div class ="container">
+    <div class ="col-md-8">
+
+        <%= form_for @question do |f| %>
+
+          <div class="from-group" >
+            <%= f.label :title,  "Title" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div> 
+
+          <div class="from-group" >
+            <%= f.label :description,  "Description" %>
+            <%= f.text_area :description, rows: "5", class: "form-control" %>
+          </div> 
+
+          <div class="from-group float-right" >
+            <%= f.submit "Creat new Question",class: "btn btn-primary" %>
+            <%= link_to "Back",root_path, class: "btn btn-primary " %>
+          </div>
+
+        <% end %>
+    </div>
+  </div>
+</div>    
+
+

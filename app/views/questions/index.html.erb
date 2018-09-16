@@ -1,1 +1,22 @@
-<h1>Please write your question</h1>
+<div class="container">
+  <div class="row">
+    <!--Log in or not ?-->
+      <% if user_signed_in? %>
+
+        <div class="col">
+          <%= link_to 'Write your questions',new_question_path,class:"btn btn-primary float-right" %>
+        </div>
+
+      <% else %>
+
+        <div class="col">
+            <h4><%= 'Before write your questions,PLEASE log in' %></h4>
+        </div>
+
+      <% end %>
+
+       
+            
+               
+  </div>
+</div>
