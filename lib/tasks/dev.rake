@@ -119,4 +119,18 @@ namespace :dev do
     puts "Total #{QuestionTag.count} question_tags created !"
   end
 
+  task fake_all: :environment do
+    Rake::Task["db:migrate"].execute
+    Rake::Task["db:seed"].execute
+    Rake::Task["dev:fake_user"].execute
+    Rake::Task["dev:fake_question"].execute
+    Rake::Task["dev:fake_answer"].execute
+    Rake::Task["dev:fake_question_upvote"].execute
+    Rake::Task["dev:fake_answer_upvote"].execute
+    Rake::Task["dev:fake_favorite"].execute
+    Rake::Task["dev:fake_tag"].execute
+    Rake::Task["dev:fake_question_tag"].execute
+
+  end
+
 end

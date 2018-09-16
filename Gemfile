@@ -39,7 +39,7 @@ gem 'kaminari', '~> 1.1'
 gem 'carrierwave'
 gem 'mini_racer', '~> 0.2.0'
 gem 'pry', '~> 0.11.3'
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass', '~> 3.3','>= 3.3.7'
 
 
 
