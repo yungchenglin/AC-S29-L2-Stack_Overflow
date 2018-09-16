@@ -5,10 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-
 gem 'devise', '~> 4.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -37,13 +33,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'ffaker', '~> 2.10'
-gem 'bootstrap', '~> 4.1.1'
 gem 'sprockets-rails', '~> 3.2.1'
-gem 'jquery-rails', '~> 4.3.3'
+gem 'jquery-rails', '~> 4.3'
 gem 'kaminari', '~> 1.1'
 gem 'carrierwave'
 gem 'mini_racer', '~> 0.2.0'
 gem 'pry', '~> 0.11.3'
+gem 'bootstrap-sass', '~> 3.3'
 
 
 

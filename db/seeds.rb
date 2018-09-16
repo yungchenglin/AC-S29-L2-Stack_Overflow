@@ -12,12 +12,3 @@ User.destroy_all
 avatar = File.open("#{Rails.root}/public/avatar/user15.jpg")
 User.create!(email: 'josh@stackoverflow.com', password: '12345678', role: 'admin', title: "產品經理")
 puts 'admin user created !'
-
-=======
-
-
-
-
-
-User.create(name: "test", email: "test@test.com", password: "12345678", role: "admin")
-puts "Default admin created!"
