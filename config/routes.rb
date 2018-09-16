@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "questions#index"
 
-  resources :questions, only:[:index, :show, :new, :create] do
+  resources :questions, only: [:index, :new, :create] do
     
   end 
 
