@@ -10,11 +10,18 @@
       <% else %>
 
         <div class="col">
-            <h4><%= 'Before write your questions,PLEASE log in' %></h4>
+            <h4><%= 'Before write your questions,PLEASE log in.' %></h4>
         </div>
 
       <% end %>
 
+    <!--Question list-->
+       <div class="col">
+      
+          <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
+       
+      </div>
+      
        
             
                
