@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: []
 
 
   
@@ -15,16 +16,26 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
 
     if @question.save
-      flash[:notice] = "Question was successfully created"
-      redirect_to questions_url
+      flash[:notice] = "Question Update"
+      redirect_to questions_path
     else
-      flash.now[:alert] = "Question was failed to create"
+      flash.now[:alert] = @Question.errors.full_messages.to_sentence
       render :new
     end
   end
+  
+  def show
+    @question = Question.find_by(id: params[:id])
+  end
+
+
 
    
 private
+
+  def set_question
+    @question = question.find(params[:id])
+  end
 
   def question_params
     params.require(:question).permit(:title, :description)
