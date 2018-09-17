@@ -23,5 +23,9 @@ Things you may want to cover:
 
 * ...
 
-*bundle install - 載入相依的套件
+*
+bundle install - 載入相依的套件
 rails db:migrate - 載入資料庫設定
+rails db:seed - 載入種子資料設定
+rails dev:fake_all - 載入FFake資料設定
+
