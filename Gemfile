@@ -33,13 +33,14 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'ffaker', '~> 2.10'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'sprockets-rails', '~> 3.2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'kaminari', '~> 1.1'
 gem 'carrierwave'
 gem 'mini_racer', '~> 0.2.0'
 gem 'pry', '~> 0.11.3'
-gem 'bootstrap-sass', '~> 3.3','>= 3.3.7'
+
 
 
 
