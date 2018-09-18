@@ -1,21 +1,11 @@
-<div class="container">
-  <div class="row">
+<div class="container">  
+  <div class="row">  
+    <div class="col-9">
 
-    <div class="row">
-          <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
-      </div>
-  
+        <h5><%= link_to @question.title, question_path(@question) %></h5>
+        <p><%= @question.description %></p>
 
-
-    <!--Answer counter/button-->
-      
-        <div class="row">
-          <%= link_to 'Write your answers',new_question_path,class:"btn btn-primary float-right" %>
-        </div>
-
-      
-       
-            
-               
+     
+    </div>
   </div>
 </div>
