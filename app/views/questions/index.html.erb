@@ -5,7 +5,7 @@
         <% if user_signed_in? %>
 
           <div class="col">
-            <%= link_to 'Write your questions',new_question_path,class:"btn btn-primary float-right" %>
+            <%= link_to 'Write your question',new_question_path,class:"btn btn-primary float-right" %>
           </div>
 
         <% else %>
@@ -17,7 +17,7 @@
         <% end %>
 
       <!--Question list-->
-        <div class="col">
+        <div class="col-8">
         
             <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
          

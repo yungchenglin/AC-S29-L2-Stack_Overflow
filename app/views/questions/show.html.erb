@@ -1,11 +1,46 @@
-<div class="container">  
-  <div class="row">  
-    <div class="col-9">
+<div class="container">
+  <div class="col">
+    <div class="index-question-content">      
 
-        <h5><%= link_to @question.title, question_path(@question) %></h5>
-        <p><%= @question.description %></p>
 
-     
+      <div class="question-item clearfix">
+        <div class="col">  
+          <div class="col-9">
+
+            <h5><%= link_to @question.title, question_path(@question) %></h5>
+            <p><%= @question.description %></p>
+          
+          </div>
+        </div>
+      </div>
+
+  <!--Log in or not ?-->
+    <div class="container">
+      <div class="row">
+        <% if user_signed_in? %>
+          <div class="col">
+            <%= form_for [ @question, @answer ] do |f| %>
+              <div class="form-group">
+                <%= f.text_area :content, placeholder: "Write your answer.", class: "form-control" %>
+                <%= f.submit "Answer", class: "btn btn-primary" %>
+               </div>
+            <% end %>
+
+        <% else %>
+
+                <div class="form-group">
+                    <h4><%= 'Before you answer the question,PLEASE log in.' %></h4>
+                </div>
+
+              <% end %>
+          
+          </div>
+        </div>
+
+
     </div>
   </div>
 </div>
+
+
+    
