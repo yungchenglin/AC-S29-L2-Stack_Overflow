@@ -16,22 +16,18 @@
 
 
   <!--Show the Answer-->
-        <% @question.answers.each do |answer| %>
-            <div>
-              <p><%= simple_format answer.content %></p>
-              <p class="text-muted">
-                <em><%= time_ago_in_words(answer.created_at)%> ago </em>
-               
-              </p>
-            </div>
-            <hr>
-        <% end %>
-
-
-
-
-
-
+      <div class="question-item clearfix">
+        <h5> Answer List</h5>
+          <% @question.answers.each do |answer| %>
+              <div>
+                <p><%= simple_format answer.content %></p>
+                <p class="text-muted">
+                  <em><%= time_ago_in_words(answer.created_at)%> ago </em>
+                 
+                </p>
+              </div>
+          <% end %>
+      </div>
 
   <!--Answer for log in or not ?-->
     <div class="container">
