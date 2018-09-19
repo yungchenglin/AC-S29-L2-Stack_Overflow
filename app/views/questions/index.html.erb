@@ -13,15 +13,13 @@
                   <h4><%= 'Before write your questions,PLEASE log in.' %></h4>
                 </div>
               <% end %>
-
-
-          <div class="col-9">
-            <!--Question list-->
-              <div class="form-group">
-                <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
-              </div>
      
-          </div>            
+            <!--Question list-->
+              <div class="col-10">
+                <div class="form-group">
+                  <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
+                </div>
+              </div>           
                  
   </div>
 </div>

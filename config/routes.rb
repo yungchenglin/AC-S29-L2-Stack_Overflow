@@ -7,16 +7,19 @@ Rails.application.routes.draw do
   resources :questions, only: [:index, :new, :create, :show ] do
     resources :answers, only: [:create] do
       member do
-        post :favorite
-        post :unfavorite
+        post :upvote
+        post :unupvote
       end
     end 
 
     member do
         post :favorite
         post :unfavorite
+
+        post :upvote
+        post :unupvote
       end
-      
+
   end 
 
 

@@ -30,6 +30,20 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
   end
 
+  # POST /questions/:id/favorite
+  def favorite
+    @question = Question.find(params[:id])
+    @question.favorites.create!(user: current_user)
+    redirect_back(fallback_location: root_path)  # 導回上一頁
+  end
+
+  def unfavorite
+    @question = Question.find(params[:id])
+    favorites = Favorite.where(question: @question, user: current_user)
+    favorites.destroy_all
+    redirect_back(fallback_location: root_path)
+  end
+
 
 
    

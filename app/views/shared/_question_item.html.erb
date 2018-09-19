@@ -1,5 +1,22 @@
 <div class="question-item clearfix">
-  <div class="row">  
+  <div class="row"> 
+
+  <div class="col-3">
+
+      <%= link_to 'Favorite', favorite_question_path(id: question.id), method: :post, class: "btn btn-primary" %>
+      <%= link_to 'Unfavorite', unfavorite_question_path(id: question.id), method: :post, class: "btn btn-info" %>
+     
+    </div> 
+    
+
+
+
+
+
+
+
+
+
     <div class="col-9">
 
         <h5><%= link_to question.title, question_path(question) %></h5>
