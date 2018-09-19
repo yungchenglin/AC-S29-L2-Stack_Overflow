@@ -2,20 +2,13 @@
   <div class="row"> 
 
   <div class="col-3">
-
-      <%= link_to 'Favorite', favorite_question_path(id: question.id), method: :post, class: "btn btn-primary" %>
+    <% if question.is_favorited?(current_user) %>
       <%= link_to 'Unfavorite', unfavorite_question_path(id: question.id), method: :post, class: "btn btn-info" %>
-     
-    </div> 
+    <% else %>
+      <%= link_to 'Favorite', favorite_question_path(id: question.id), method: :post, class: "btn btn-primary" %>
+    <% end %> 
+  </div> 
     
-
-
-
-
-
-
-
-
 
     <div class="col-9">
 
