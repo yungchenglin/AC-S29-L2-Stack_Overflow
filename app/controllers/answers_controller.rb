@@ -4,8 +4,12 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
     @answer.user = current_user
-    @answer.save!
-    redirect_back(fallback_location: questions_path)
+    if @answer.save
+      flash[:notice] = "Solution created."
+    else
+      flash[:alert] = "Please answer again."
+    end
+      redirect_back(fallback_location: questions_path)
   end
 
 

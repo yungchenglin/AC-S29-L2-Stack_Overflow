@@ -1,31 +1,27 @@
 <div class="container">
-  <div class="col">
-    <div class="index-question-content">
+  <div class="index-question-content">
+  
       <!--Log in or not ?-->
-        <% if user_signed_in? %>
+              <% if user_signed_in? %>
+                <div class="col">
+                  <%= link_to 'Write your question',new_question_path,class:"btn btn-primary float-right" %>
+                </div>
 
-          <div class="col">
-            <%= link_to 'Write your question',new_question_path,class:"btn btn-primary float-right" %>
-          </div>
+              <% else %>
 
-        <% else %>
+                <div class="col">
+                  <h4><%= 'Before write your questions,PLEASE log in.' %></h4>
+                </div>
+              <% end %>
 
-          <div class="col">
-              <h4><%= 'Before write your questions,PLEASE log in.' %></h4>
-          </div>
 
-        <% end %>
-
-      <!--Question list-->
-        <div class="col-8">
-        
-            <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
-         
-        </div>
-        
-         
-              
+          <div class="col-9">
+            <!--Question list-->
+              <div class="form-group">
+                <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
+              </div>
+     
+          </div>            
                  
-    </div>
   </div>
 </div>
