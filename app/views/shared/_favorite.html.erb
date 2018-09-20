@@ -1,5 +1,5 @@
     <% if question.is_favorited?(current_user) %>
-      <%= link_to 'Unfavorite', unfavorite_question_path(id: question.id), method: :delete, class: "btn btn-info" %>
+      <%= link_to 'Unfavorite', unfavorite_question_path(id: question.id), method: :post, class: "btn btn-info" %>
       <%= question.favorites.count  %>
     <% else %>
       <%= link_to 'Favorite', favorite_question_path(id: question.id), method: :post, class: "btn btn-primary" %>
