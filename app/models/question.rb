@@ -12,4 +12,5 @@ class Question < ApplicationRecord
     self.favorited_users.include?(user)
   end
 
+
 end

@@ -44,10 +44,9 @@ class QuestionsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def is_favorited?(user)
-    self.favorited_users.include?(user)
-  end
-  
+
+
+   
 private
 
   def set_question
