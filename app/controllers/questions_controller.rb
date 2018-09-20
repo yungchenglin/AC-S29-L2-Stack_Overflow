@@ -47,6 +47,8 @@ class QuestionsController < ApplicationController
     @question.question_upvotes.create!(user: current_user)
     redirect_back(fallback_location: root_path)  # 導回上一頁
   end
+
+  
    
 private
 

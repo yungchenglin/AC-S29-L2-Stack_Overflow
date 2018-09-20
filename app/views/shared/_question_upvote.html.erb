@@ -1,0 +1,2 @@
+   <%= link_to "Upvote", question_upvote_question_path(id: question.id), method: :post, class: 'btn btn-success' %>
+    <%= question.question_upvotes.count %>

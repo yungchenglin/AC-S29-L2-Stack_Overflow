@@ -4,11 +4,19 @@
 
   <!--Show the question-->
       <div class="question-item clearfix">
-        <div class="col">  
-          <div class="col-9">
+        <div class="row-9">
             <h5><%= link_to @question.title, question_path(@question) %></h5>
             <p><%= @question.description %></p>
+            <%= link_to @question.user.name, user_path(@question.user) %>
+             -Asked <%= time_ago_in_words @question.created_at %> 
+
+
+        <div class="row-3">
+            <%= render :partial => "shared/question_upvote", locals: {question: @question} %>
+            <br>
+            <%= render :partial => "shared/favorite", locals: {question: @question} %>
           </div>
+         
         </div>
       </div>
 
@@ -21,6 +29,9 @@
                 <p><%= simple_format answer.content %></p>
                 <p class="text-muted">
                   <em><%= time_ago_in_words(answer.created_at)%> ago </em>
+                     <%= link_to "Upvote", answer_upvote_question_answer_path(@question,answer), method: :post, class: 'btn btn-success' %>
+                    
+                <hr>
                  
                 </p>
               </div>
