@@ -1,5 +1,6 @@
 <div class="container">
   <div class="index-question-content">
+    <%= paginate @questions %>
   
       <!--Log in or not ?-->
               <% if user_signed_in? %>
