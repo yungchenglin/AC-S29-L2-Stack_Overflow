@@ -5,6 +5,8 @@
     <%= render :partial => "shared/question_upvote", locals: {question: question} %>
     <br>
     <%= render :partial => "shared/favorite", locals: {question: question} %>
+    <br>
+    <p><strong>Answers:<%= question.answers.count %></strong></p>
   </div> 
     
 
