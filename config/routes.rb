@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   resources :questions, only: [:index, :new, :create, :show ] do
     resources :answers, only: [:create] do
       member do
-        post :upvote
-        post :unupvote
+        post :answer_upvote
       end
     end 
 
@@ -16,8 +15,7 @@ Rails.application.routes.draw do
         post :favorite
         post :unfavorite
 
-        post :upvote
-        post :unupvote
+        post :question_upvote
       end
 
   end 

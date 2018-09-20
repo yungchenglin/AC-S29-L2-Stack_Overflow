@@ -44,8 +44,12 @@ class QuestionsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-
-
+  # POST /questions/:id/upvote
+  def question_upvote
+    @question = Question.find(params[:id])
+    @question.question.upvotes.create!(user: current_user)
+    redirect_back(fallback_location: root_path)  # 導回上一頁
+  end
    
 private
 

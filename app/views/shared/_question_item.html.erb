@@ -2,13 +2,7 @@
   <div class="row"> 
 
   <div class="col-3">
-    <% if question.is_favorited?(current_user) %>
-      <%= link_to 'Unfavorite', unfavorite_question_path(id: question.id), method: :post, class: "btn btn-info" %>
-      <%= question.favorites.count  %>
-    <% else %>
-      <%= link_to 'Favorite', favorite_question_path(id: question.id), method: :post, class: "btn btn-primary" %>
-      <%= question.favorites.count  %>
-    <% end %> 
+    <%= render :partial => "shared/favorite", locals: {question: question} %>
   
   </div> 
     
