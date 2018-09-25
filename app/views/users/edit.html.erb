@@ -12,14 +12,21 @@
         <%= f.file_field :avatar %>
       </div>
       <div class="col-lg-8 col-md-8">
+        <%= f.label :name %>
         <%= f.text_field :name, class: "form-control" ,placeholder: "Your Name" %><br>
+        <%= f.label :website %>
         <%= f.text_field :website, class: "form-control" ,placeholder: "Your Website" %><br>
+        <%= f.label :twitter %>
         <%= f.text_field :twitter, class: "form-control" ,placeholder: "Your Twitter Link" %><br>
+        <%= f.label :github %>
         <%= f.text_field :github, class: "form-control" ,placeholder: "Your Github Link" %><br>
+        <%= f.label :company %>
         <%= f.text_field :company, class: "form-control" ,placeholder: "Your Company Name" %><br>
+        <%= f.label :title %>
         <%= f.text_field :title, class: "form-control" ,placeholder: "Your Job Title" %><br>
+        <%= f.label :introduction %>
         <%= f.text_area :introduction, class: "form-control" ,placeholder: "Write something about your self !" %><br>
-        <%= f.submit 'Update' %>
+        <%= f.submit 'Update', class: 'btn btn-outline-primary' %>
       </div>
     </div>
     <% end %>
