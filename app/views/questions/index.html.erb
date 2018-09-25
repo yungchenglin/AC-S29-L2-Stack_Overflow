@@ -1,26 +1,15 @@
-<div class="container">
-  <div class="index-question-content">
-    <%= paginate @questions %>
-  
-      <!--Log in or not ?-->
-              <% if user_signed_in? %>
-                <div class="col">
-                  <%= link_to 'Write your question',new_question_path,class:"btn btn-primary float-right" %>
-                </div>
+<!-- Add Jumbotron on the top of question index page --> 
+<div class="jumbotron mt-5">
+  <h1 class="display-4">Learn, Share, Build</h1>
+  <p class="lead">This is a simple stackoverflow clone website, welcome to join our largest developer community !</p>
+  <hr class="my-4">
+  <p>Let's start here by asking questions !</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Ask Question</a>
+  </p>
+</div>
 
-              <% else %>
-
-                <div class="col">
-                  <h4><%= 'Before write your questions,PLEASE log in.' %></h4>
-                </div>
-              <% end %>
-     
-            <!--Question list-->
-              <div class="col-10">
-                <div class="form-group">
-                  <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
-                </div>
-              </div>           
-                 
-  </div>
+<!-- Iteration for question lists -->
+<div>
+ <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
 </div>

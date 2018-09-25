@@ -1,23 +1,21 @@
-<div class="question-item clearfix">
-  <div class="row"> 
-
-  <div class="col-3">
-    <%= render :partial => "shared/question_upvote", locals: {question: question} %>
-    <br>
-    <%= render :partial => "shared/favorite", locals: {question: question} %>
-    <br>
-    <p><strong>Answers:<%= question.answers.count %></strong></p>
-  </div> 
-    
-
-    <div class="col-9">
-        <h5><%= link_to question.title, question_path(question) %></h5>
-        <p><%= truncate(question.description, length: 100) %></p>
-        <%= link_to question.user.name, user_path(question.user) %>
-        -Asked <%= time_ago_in_words question.created_at %> 
-     
-    </div>
-
-
-  </div>
+<div class="card">
+      <div class="row p-3">
+        <div class="col-md-3 align-self-center">
+          <div class="text-center">
+            <%= link_to "#{question.question_upvotes.size}<br>Votes".html_safe, questions_path, class: "btn btn-outline-secondary m-3" %>
+            <%= link_to "#{question.answers.size}<br>Answers".html_safe, questions_path, class: "btn btn-outline-success m-3" %>
+            <%= link_to "#{question.favorites.size}<br>Favorites".html_safe, questions_path, class: "btn btn-outline-primary m-3" %>    
+          </div>
+        </div>
+        <div class="col-md-9 align-self-center pt-3">
+          <h3><%= link_to question.title, question_path(question.id) %></h3><br>
+          <p><%= question.description.truncate(100)%></p><br>
+          <div class="text-right">
+            <span>
+              <small>asked <%= time_ago_in_words question.created_at %> ago</small>
+              <small><%= link_to question.asker.name, user_path(question.asker.id) %></small>
+            </span>
+          </div>
+        </div>
+      </div>
 </div>
