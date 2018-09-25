@@ -12,5 +12,10 @@ class Question < ApplicationRecord
     self.favorited_users.include?(user)
   end
 
+  def asker_name
+    user = User.find(self.user_id)
+    user.name
+  end
+
 
 end

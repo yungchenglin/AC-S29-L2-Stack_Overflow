@@ -1,26 +1,3 @@
-<div class="container">
-  <div class="index-question-content">
-    <%= paginate @questions %>
-  
-      <!--Log in or not ?-->
-              <% if user_signed_in? %>
-                <div class="col">
-                  <%= link_to 'Write your question',new_question_path,class:"btn btn-primary float-right" %>
-                </div>
-
-              <% else %>
-
-                <div class="col">
-                  <h4><%= 'Before write your questions,PLEASE log in.' %></h4>
-                </div>
-              <% end %>
-     
-            <!--Question list-->
-              <div class="col-10">
-                <div class="form-group">
-                  <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
-                </div>
-              </div>           
-                 
-  </div>
+<div class="container-fluid p-3">
+ <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
 </div>
