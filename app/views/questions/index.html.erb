@@ -1,3 +1,15 @@
-<div class="container-fluid p-3">
+<!-- Add Jumbotron on the top of question index page --> 
+<div class="jumbotron mt-5">
+  <h1 class="display-4">Learn, Share, Build</h1>
+  <p class="lead">This is a simple stackoverflow clone website, welcome to join our largest developer community !</p>
+  <hr class="my-4">
+  <p>Let's start here by asking questions !</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Ask Question</a>
+  </p>
+</div>
+
+<!-- Iteration for question lists -->
+<div>
  <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
 </div>
