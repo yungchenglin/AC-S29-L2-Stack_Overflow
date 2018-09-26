@@ -5,7 +5,15 @@
   <hr class="my-4">
   <p>Let's start here by asking questions !</p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Ask Question</a>
+
+    <% if user_signed_in? %>
+      <a href="/questions/new" class="btn btn-primary btn-lg" href="#" role="button">Ask question</a>
+    <% else %>
+
+      <div class="form-group">
+        <h4><%= 'Before you ask the question,PLEASE log in.' %></h4>
+      </div>
+    <% end %>
   </p>
 </div>
 
