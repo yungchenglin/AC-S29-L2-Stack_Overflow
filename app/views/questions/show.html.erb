@@ -1,47 +1,50 @@
 <div class="container">
-  <div class="col">
-    <div class="index-question-content">      
-
-  <!--Show the question-->
-      <div class="question-item clearfix">
-        <div class="row-9">
-            <h5><%= link_to @question.title, question_path(@question) %></h5>
-            <p><%= @question.description %></p>
-            <%= link_to @question.user.name, user_path(@question.user) %>
-             -Asked <%= time_ago_in_words @question.created_at %> 
-
-
-        <div class="row-3">
-            <%= render :partial => "shared/question_upvote", locals: {question: @question} %>
-            <br>
-            <%= render :partial => "shared/favorite", locals: {question: @question} %>
-          </div>
-         
-        </div>
+  <p class="h1"><%= @question.title %></p>
+  <hr>
+  <div class="row">
+    <div class="col-md-2">
+      <%= render partial: 'shared/question_upvote', locals: {question: @question} %>
+      <%= render partial: 'shared/favorite', locals: {question: @question} %>
+    </div>
+    <div class="col-md-10">
+      <div><%= @question.description %></div>
+      <div class="text-right">
+        <span>
+          <small>asked <%= time_ago_in_words @question.created_at %> ago</small>
+          <small><%= link_to @question.asker.name, user_path(@question.asker.id) %></small>
+        </span>
       </div>
+    </div>
+  </div>
 
+  <hr>
+  <hr>
 
   <!--Show the Answer-->
-      <div class="question-item clearfix">
-        <h5> Answer List</h5>
-          <% @question.answers.each do |answer| %>
-              <div>
-                <p><%= simple_format answer.content %></p>
-                <p class="text-muted">
-                  <em><%= time_ago_in_words(answer.created_at)%> ago </em>
-                     <%= link_to "Upvote", answer_upvote_question_answer_path(@question,answer), method: :post, class: 'btn btn-success' %>
-                     
-                    
-                <hr>
-                 
-                </p>
-              </div>
-          <% end %>
+  <p class="h3"><%= "#{@question.answers.size} Answers" %></p>
+  <hr>
+
+  <% @question.answers.each do |answer| %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= render partial: 'shared/answer_upvote', locals: {answer: answer} %>
       </div>
+      <div class="col-md-10">
+        <div><%= answer.content %></div>
+        <div class="text-right">
+          <span>
+            <small>asked <%= time_ago_in_words answer.created_at %> ago</small>
+            <small><%= link_to answer.user.name, user_path(answer.user.id) %></small>
+          </span>
+        </div> 
+      </div>
+      <hr>
+    </div>
+    <hr>
+  <% end %>
 
   <!--Answer for log in or not ?-->
     <div class="container">
-      <div class="row">
         <% if user_signed_in? %>
           <div class="col">
             <%= form_for [ @question, @answer ] do |f| %>
@@ -51,19 +54,14 @@
                </div>
             <% end %>
 
-              <% else %>
-                <div class="form-group">
-                    <h4><%= 'Before you answer the question,PLEASE log in.' %></h4>
-                </div>
-
-              <% end %>
-          
+        <% else %>
+            <div class="form-group">
+              <h4><%= 'Before you answer the question,PLEASE log in.' %></h4>
+            </div>
           </div>
-        </div>
-
-
+        <% end %>
     </div>
-  </div>
+
 </div>
 
 

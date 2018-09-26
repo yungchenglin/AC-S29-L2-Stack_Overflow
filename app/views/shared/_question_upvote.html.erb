@@ -1,0 +1,6 @@
+<div class="text-center">
+  <%= link_to "<i class='fa fa-sort-up'></i><br>".html_safe, question_upvote_question_path(question.id), method: :post %><br>
+  <p class="h4"><%= question.question_upvotes.size %></p><br>
+  <p class="h4">Votes</p><br>
+  <%= link_to "<i class='fa fa-sort-down'></i><br>".html_safe, question_downvote_question_path(question.id), method: :delete %><br>
+</div>
