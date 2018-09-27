@@ -14,10 +14,30 @@ class AnswersController < ApplicationController
 
      # POST /answers/:id/answer_upvote
     def answer_upvote
-      @answer = Answer.find(params[:id])
-      @answer.answer_upvotes.create!(user:current_user)
-      @answer.save
-      redirect_back(fallback_location: root_path)  # 導回上一頁
+      @answer = Answer.find_by(id: params[:id])
+      answerupvote = @answer.answer_upvotes.build(user_id: current_user.id)
+      if answerupvote
+        answerupvote.save
+        flash[:notice] = "Vote Successfully !"
+        redirect_back(fallback_location: root_path)  # 導回上一頁
+      else
+        flash[:alert] = @answer.errors.full_messages.to_sentence
+        redirect_back(fallback_location: root_path)  # 導回上一頁
+      end  
+      
+    end
+
+    def answer_downvote
+      @answer = Answer.find_by(id: params[:id])
+      @answerupvote = AnswerUpvote.find_by(user_id: current_user.id, answer_id: @answer.id)
+      if @answerupvote
+        @answerupvote.destroy
+        flash[:notice] = "Downvote Successfully !"
+        redirect_back(fallback_location: root_path)  # 導回上一頁
+      else
+        flash[:alert] = "You have to vote first before downvoting !"
+        redirect_back(fallback_location: root_path)
+      end
     end
 
 

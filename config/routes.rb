@@ -8,14 +8,14 @@ Rails.application.routes.draw do
     resources :answers, only: [:create] do
       member do
         post :answer_upvote
-        delete :answer_downvote
+        post :answer_downvote
       end
     end 
 
     member do
         post :favorite
         post :unfavorite
-        delete :question_downvote
+        post :question_downvote
         post :question_upvote
     end
 

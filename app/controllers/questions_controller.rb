@@ -51,8 +51,14 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/:id/question_downvote
   def question_downvote
-    @question.question_upvotes.destroy_all(user: current_user)
-    redirect_back(fallback_location: root_path)  # 導回上一頁
+    @questionupvote = QuestionUpvote.find_by(question_id: @question.id, user_id: current_user.id)
+    if  @questionupvote
+        @questionupvote.destroy
+        flash[:notice] = "Downvote Successfully !"
+        redirect_back(fallback_location: root_path)  # 導回上一頁
+    else
+        flash[:alert] = "You have to vote first before downvoting !"
+    end
   end
 
   

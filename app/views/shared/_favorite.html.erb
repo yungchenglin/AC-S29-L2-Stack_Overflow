@@ -3,7 +3,7 @@
       <%= link_to "<i class='fa fa-star'></i>".html_safe, unfavorite_question_path(id: question.id), method: :post %><br>
       <%= question.favorites.count  %>
     <% else %>
-      <%= link_to "<i class='fa fa-star'></i>".html_safe, favorite_question_path(id: question.id), method: :post %><br>
+      <%= link_to "<i class='fa fa-star grey'></i>".html_safe, favorite_question_path(id: question.id), method: :post %><br>
       <%= question.favorites.count  %>
     <% end %> 
 </div>    

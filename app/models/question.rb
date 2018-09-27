@@ -16,5 +16,11 @@ class Question < ApplicationRecord
     user = User.find(self.user_id)
   end
 
-
+  def is_voted?(user)
+    if self.question_upvotes.find_by(user_id: user.id)
+      true
+    else
+      false
+    end
+  end
 end
