@@ -40,28 +40,25 @@
       </div>
       <hr>
     </div>
-    <hr>
   <% end %>
 
   <!--Answer for log in or not ?-->
-    <div class="container">
-        <% if user_signed_in? %>
-          <div class="col">
-            <%= form_for [ @question, @answer ] do |f| %>
-              <div class="form-group">
-                <%= f.text_area :content, placeholder: "Write your answer.", class: "form-control" %>
-                <%= f.submit "Answer", class: "btn btn-primary" %>
-               </div>
-            <% end %>
-
-        <% else %>
+  <div class="row">
+      <% if user_signed_in? %>
+        <div class="col">
+          <%= form_for [@question, @answer] do |f| %>
             <div class="form-group">
-              <h4><%= 'Before you answer the question,PLEASE log in.' %></h4>
-            </div>
+              <%= f.text_area :content, placeholder: "Write your answer.", rows: '5', class: "form-control" %><br>
+              <%= f.submit "Answer", class: "btn btn-primary" %>
+             </div>
+          <% end %>
+      <% else %>
+          <div class="form-group">
+            <h4>Want to share your answer? <%= link_to 'Log in', new_user_session_path %> now.</h4>
           </div>
-        <% end %>
-    </div>
-
+        </div>
+      <% end %>
+  </div>
 </div>
 
 
