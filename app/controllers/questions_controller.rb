@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:favorite, :unfavorite, :question_upvote]
+  before_action :redirect_to_sign_up_page, only: [:create, :favorite, :unfavorite, :question_upvote, :question_downvote]
+  before_action :set_question, only: [:show, :favorite, :unfavorite, :question_upvote, :question_downvote]
 
 
   
@@ -19,13 +20,13 @@ class QuestionsController < ApplicationController
       flash[:notice] = "Question Update"
       redirect_to questions_path
     else
-      flash.now[:alert] = @Question.errors.full_messages.to_sentence
+      flash.now[:alert] = @question.errors.full_messages.to_sentence
       render :new
     end
   end
   
   def show
-    @question = Question.find_by(id: params[:id])
+    #@question = Question.find_by(id: params[:id]) 加入before_action預先執行
     @answers = @question.answers.order(created_at: :asc)
     @answer = Answer.new
   end
@@ -42,6 +43,18 @@ class QuestionsController < ApplicationController
     redirect_back(fallback_location: root_path)  # 導回上一頁
   end
 
+  # DELETE /questions/:id/question_downvote
+  def question_downvote
+    @questionupvote = QuestionUpvote.find_by(question_id: @question.id, user_id: current_user.id)
+    if  @questionupvote
+        @questionupvote.destroy
+        flash[:notice] = "Downvote Successfully !"
+        redirect_back(fallback_location: root_path)  # 導回上一頁
+    else
+        flash[:alert] = "You have to vote first before downvoting !"
+    end
+  end
+
   
    
 private
@@ -54,6 +67,11 @@ private
     params.require(:question).permit(:title, :description)
   end
 
+  def redirect_to_sign_up_page
+    if !user_signed_in?
+      redirect_to new_user_registration_path
+    end
+  end
 
 
 end

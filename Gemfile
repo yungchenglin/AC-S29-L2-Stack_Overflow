@@ -40,7 +40,7 @@ gem 'kaminari', '~> 1.1'
 gem 'carrierwave'
 gem 'mini_racer', '~> 0.2.0'
 gem 'pry', '~> 0.11.3'
-
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
 
 
