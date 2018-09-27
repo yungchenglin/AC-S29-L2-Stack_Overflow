@@ -1,3 +1,32 @@
+// Page Width
 .container-fluid {
   width: 90%;
 }
+
+// Font Awesome Icon
+.fa-star {
+  font-size: 3em;
+}
+
+.fa-sort-up, .fa-sort-down {
+  font-size: 5em;
+}
+
+
+// BUTTONS
+.btn-block {
+  display: block;
+  white-space: normal;
+  width: 100%;
+}
+
+.fa-disabled {
+      opacity: 0.5;
+      pointer-events: all !important;
+      cursor: not-allowed;
+ }
+
+ // COLOR
+ .fa.fa-star.grey {
+  color: #A9A9A9;
+ }

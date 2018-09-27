@@ -29,7 +29,7 @@ namespace :dev do
     30.times do |i|
       user = User.all.sample
       question = Question.create!(
-        description: FFaker::Lorem::sentence(8),
+        description: FFaker::Lorem::paragraph(sentence_count = 5),
         user: user,
         title: FFaker::Lorem::sentence(1),
         created_at: FFaker::Time::datetime
@@ -46,7 +46,7 @@ namespace :dev do
         answer = Answer.create!(
           user: user,
           question: question,
-          content: FFaker::Lorem::sentence(3),
+          content: FFaker::Lorem::sentence(6),
           created_at: FFaker::Time::datetime
         )
       end
@@ -58,11 +58,14 @@ namespace :dev do
       50.times do |i|
         user = User.all.sample
         question = Question.all.sample
-        question_upvote = QuestionUpvote.create!(
-          question: question,
-          user: user,
-          created_at: FFaker::Time::datetime
-        )
+        questionupvote = QuestionUpvote.find_by(user_id: user.id, question_id: question.id)
+        if !questionupvote
+          question_upvote = QuestionUpvote.create!(
+            question: question,
+            user: user,
+            created_at: FFaker::Time::datetime
+          )
+        end
       end
     puts "Total #{QuestionUpvote.count} question_votes created !"
   end
@@ -72,11 +75,14 @@ namespace :dev do
       50.times do |i|
         user = User.all.sample
         answer = Answer.all.sample
-        answer_upvote = AnswerUpvote.create!(
-          answer: answer,
-          user: user,
-          created_at: FFaker::Time::datetime
-        )
+        answerupvote = AnswerUpvote.find_by(user_id: user.id, answer_id: answer.id)
+        if !answerupvote
+          answer_upvote = AnswerUpvote.create!(
+            answer: answer,
+            user: user,
+            created_at: FFaker::Time::datetime
+          )
+        end
       end
     puts "Total #{AnswerUpvote.count} answer_votes created !"
   end

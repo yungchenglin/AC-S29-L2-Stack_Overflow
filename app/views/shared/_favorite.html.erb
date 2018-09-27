@@ -1,7 +1,16 @@
+<% if user_signed_in? %>
+  <div class="text-center">
     <% if question.is_favorited?(current_user) %>
-      <%= link_to 'Unfavorite', unfavorite_question_path(id: question.id), method: :post, class: "btn btn-info" %>
+      <%= link_to "<i class='fa fa-star'></i>".html_safe, unfavorite_question_path(id: question.id), method: :post %><br>
       <%= question.favorites.count  %>
     <% else %>
-      <%= link_to 'Favorite', favorite_question_path(id: question.id), method: :post, class: "btn btn-primary" %>
+      <%= link_to "<i class='fa fa-star grey'></i>".html_safe, favorite_question_path(id: question.id), method: :post %><br>
       <%= question.favorites.count  %>
     <% end %> 
+  </div>  
+<% else %>
+  <div class="text-center">
+    <i class='fa fa-star grey'></i>
+  </div>
+<% end %>  
+  

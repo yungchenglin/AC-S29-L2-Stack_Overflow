@@ -12,9 +12,11 @@ class Question < ApplicationRecord
     self.favorited_users.include?(user)
   end
 
-  def asker
-    user = User.find(self.user_id)
+  def is_voted?(user)
+    if self.question_upvotes.find_by(user_id: user.id)
+      true
+    else
+      false
+    end
   end
-
-
 end
