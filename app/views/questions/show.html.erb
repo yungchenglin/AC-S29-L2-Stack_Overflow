@@ -11,7 +11,8 @@
       <div class="text-right">
         <span>
           <small>asked <%= time_ago_in_words @question.created_at %> ago</small>
-          <small><%= link_to @question.asker.name, user_path(@question.asker.id) %></small>
+          <small><%= link_to @question.user.name, user_path(@question.user.id) %></small>
+          <%= image_tag @question.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail' %>
         </span>
       </div>
     </div>
@@ -35,6 +36,7 @@
           <span>
             <small>asked <%= time_ago_in_words answer.created_at %> ago</small>
             <small><%= link_to answer.user.name, user_path(answer.user.id) %></small>
+            <%= image_tag answer.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail' %>
           </span>
         </div> 
       </div>
@@ -43,19 +45,19 @@
   <% end %>
 
   <!--Answer for log in or not ?-->
-  <div class="row">
+  <div>
       <% if user_signed_in? %>
-        <div class="col">
-          <%= form_for [@question, @answer] do |f| %>
-            <div class="form-group">
-              <%= f.text_area :content, placeholder: "Write your answer.", rows: '5', class: "form-control" %><br>
-              <%= f.submit "Answer", class: "btn btn-primary" %>
-             </div>
-          <% end %>
-      <% else %>
+        <%= form_for [@question, @answer] do |f| %>
           <div class="form-group">
-            <h4>Want to share your answer? <%= link_to 'Log in', new_user_session_path %> now.</h4>
+            <%= f.text_area :content, placeholder: "Write your answer.", rows: '5', class: "form-control" %><br>
+            <%= f.submit "Answer", class: "btn btn-primary" %>
           </div>
+        <% end %>
+      <% else %>
+        <br>
+        <hr><hr>
+        <div class="border border-info text-center p-3">
+          <p class='h3'>Want to give vote and share your answer? <%= link_to 'Log in', new_user_session_path %> now.</p>
         </div>
       <% end %>
   </div>
