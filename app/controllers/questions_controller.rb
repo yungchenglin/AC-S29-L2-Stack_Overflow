@@ -37,6 +37,12 @@ class QuestionsController < ApplicationController
     redirect_back(fallback_location: root_path)  # 導回上一頁
   end
 
+  def unfavorite
+    favorites = Favorite.where(question: @question, user: current_user)
+    favorites.destroy_all
+    redirect_back(fallback_location: root_path)
+  end
+
   # POST /questions/:id/question_upvote
   def question_upvote
     @question.question_upvotes.create!(user: current_user)

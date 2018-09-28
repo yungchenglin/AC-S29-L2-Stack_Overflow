@@ -4,20 +4,7 @@
     <h2 class="text-center">Sign up</h2>
     <br/>
 
-<<<<<<< HEAD
-   <div class="filed">
-    <%= f.label :name %><br />
-    <%= f.text_field :name,autofoucs: true, autofocus: true  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-=======
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      
->>>>>>> 4c70d918bf42124cdbf0c182124f7abeb33b64ef
 
       <div class="form-group">
         <%= f.text_field :name, autofocus: true, placeholder: "Name", class: "form-control" %>
