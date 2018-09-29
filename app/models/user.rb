@@ -20,5 +20,4 @@ class User < ApplicationRecord
     self.role == "admin"
   end
   
-
 end

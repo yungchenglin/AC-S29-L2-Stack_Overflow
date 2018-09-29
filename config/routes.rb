@@ -15,15 +15,15 @@ Rails.application.routes.draw do
     member do
         post :favorite
         post :unfavorite
+
         post :question_downvote
         post :question_upvote
     end
-
   end 
 
+  resources :users 
 
 
-  resources :users
 
 
   namespace :admin do
