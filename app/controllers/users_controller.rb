@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -16,6 +16,12 @@ class UsersController < ApplicationController
       flash[:alert] = "User is not found ! Please try again..."
       redirect_back(fallback_location: root_path)
     end
+  end
+ 
+  def destroy
+    @user.destroy
+    flash[:alert] = "User was deleted."
+    redirect_to root_path
   end
 
   private

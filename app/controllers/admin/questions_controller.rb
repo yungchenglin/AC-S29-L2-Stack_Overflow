@@ -4,7 +4,7 @@ class Admin::QuestionsController < ApplicationController
   before_action :authenticate_admin
 
 
-   def index
+  def index
     @users = User.all.order(created_at: :desc)
   end
   
