@@ -21,8 +21,8 @@
                    <li class="nav-item"><%= link_to 'Admin後台', admin_root_path, class: "nav-link" %></li>
                  <% end %>
                     <li class="nav-item"> <span class="navbar-text">Hi! <%= current_user.name %></span></li>
-                    <li class="nav-item"><%= link_to'Profile', user_path(current_user), class: "nav-link" %></li>
-                    <li class="nav-item"><%= link_to'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to 'Profile', user_path(current_user), class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
      
                 <% else %>
                     <li class="nav-item"><%= link_to'註冊', new_user_registration_path, class: "nav-link" %></li>

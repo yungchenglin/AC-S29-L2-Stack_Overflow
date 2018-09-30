@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   root "questions#index"
 
-  resources :questions, only: [:index, :new, :create, :show ] do
-    resources :answers, only: [:create] do
+  resources :questions, only: [:index, :new, :create, :show, :destroy ] do
+    resources :answers, only: [:create, :destroy ] do
       member do
         post :answer_upvote
         post :answer_downvote

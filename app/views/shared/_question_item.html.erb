@@ -16,6 +16,9 @@
               <small>asked <%= time_ago_in_words question.created_at %> ago</small>
               <small><%= link_to question.user.name, user_path(question.user.id) %></small>
               <%= image_tag question.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail' %>
+
+                  <%= link_to "Delete", question, method: :delete, data:{ confirm: "Are you sure?"} %>
+      
             </span>
           </div>
         </div>

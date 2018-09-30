@@ -25,9 +25,11 @@ class UsersController < ApplicationController
   end
 
   private
+  
   def user_proflie_params
     params.require(:user).permit(:name, :company, :title, :website, :twitter, :github, :introduction, :avatar)
   end
+
   def find_user
     @user = User.find(params[:id])
   end
