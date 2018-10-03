@@ -15,7 +15,6 @@ class QuestionsController < ApplicationController
   def create
     @user = current_user
     @question = current_user.questions.build(question_params)
-
     if @question.save
       flash[:notice] = "Question Update"
       redirect_to questions_path
@@ -72,7 +71,7 @@ private
   def question_params
     params.require(:question).permit(:title, :description)
   end
-
+  
   def redirect_to_sign_up_page
     if !user_signed_in?
       redirect_to new_user_registration_path

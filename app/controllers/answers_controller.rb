@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
-
+   before_action :redirect_to_sign_up_page
+   
    def create
       @question = Question.find(params[:question_id])
       @answer = @question.answers.build(answer_params)
