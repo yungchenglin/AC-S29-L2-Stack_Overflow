@@ -19,6 +19,6 @@
 
 /node_modules
 /yarn-error.log
-/config/gh.yml
+
 
 .byebug_history
