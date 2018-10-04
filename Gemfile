@@ -41,6 +41,7 @@ gem 'carrierwave'
 gem 'mini_racer', '~> 0.2.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'omniauth-github', '~> 1.3'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 
 

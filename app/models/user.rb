@@ -3,9 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
-
-
-  mount_uploader :avatar, AvatarUploader
   
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
@@ -22,15 +19,16 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.password = Devise.friendly_token[0,20]
-      user.email = auth.info.email
-      user.avatar = auth.info.image if auth.info.image
-      user.name = auth.info.name
-      user.introduction = auth.info.description if auth.info.description
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.password = Devise.friendly_token[0,20]
+        user.email = auth.info.email
+        user.introduction = auth.info.description if auth.info.description
+        user.github = auth.info["urls"]["GitHub"] if auth.info["urls"]["GitHub"]
     end
   end
+
+  mount_uploader :avatar, AvatarUploader
   
 
 end
