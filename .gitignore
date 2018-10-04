@@ -19,6 +19,9 @@
 
 /node_modules
 /yarn-error.log
-/config/gh.yml
+/config/github.yml
 
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml
