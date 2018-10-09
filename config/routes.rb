@@ -21,13 +21,16 @@ Rails.application.routes.draw do
     end
   end 
 
-  resources :users 
 
+  get "/tags", to: "tags#search"
+  resources :users, only: [:edit, :show, :index]
 
 
 
   namespace :admin do
     root "questions#index"
+    resources :tags
+    resources :users
   end
 
 end
