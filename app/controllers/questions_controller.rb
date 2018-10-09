@@ -1,11 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :redirect_to_sign_up_page, only: [:create, :favorite, :unfavorite, :question_upvote, :question_downvote]
+  before_action :redirect_to_sign_up_page, only: [:new, :create, :favorite, :unfavorite, :question_upvote, :question_downvote]
   before_action :set_question, only: [:show, :favorite, :unfavorite, :question_upvote, :question_downvote]
-
-
   
   def index
      @questions = Question.order(created_at: :desc).page(params[:page]).per(10)
+     @tags = Tag.all
   end
 
   def new
@@ -59,8 +58,6 @@ class QuestionsController < ApplicationController
         flash[:alert] = "You have to vote first before downvoting !"
     end
   end
-
-  
    
 private
 
@@ -77,7 +74,6 @@ private
       redirect_to new_user_registration_path
     end
   end
-
 
 end
 

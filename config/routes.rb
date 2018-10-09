@@ -18,16 +18,16 @@ Rails.application.routes.draw do
         post :question_downvote
         post :question_upvote
     end
-
   end 
 
-
-
-  resources :users
+  get "/tags", to: "tags#search"
+  resources :users, only: [:edit, :show, :index]
 
 
   namespace :admin do
     root "questions#index"
+    resources :tags
+    resources :users
   end
 
 end
