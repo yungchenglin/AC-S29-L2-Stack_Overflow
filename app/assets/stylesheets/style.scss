@@ -30,3 +30,49 @@
  .fa.fa-star.grey {
   color: #A9A9A9;
  }
+
+ // FONT-SIZE
+ .large {
+  font-size: 2em;
+ }
+
+// HOVER
+#sidebar li:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  a{
+    color: white;
+  };
+}
+
+#sidebar li:active {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+
+// JUMBOTRON
+.jumbotron {
+  padding: 0;
+}
+
+.jumbotron .back_img {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-image: url("https://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg");
+  background-size: cover;
+}
+
+.jumbotron .back_img .jumbo_overlay{
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(255, 99, 71, 0.8),rgba(255, 99, 71, 0.5));
+}
+
+.jumbotron .back_img .jumbo_overlay .jumbo_text {
+  color: white;
+  padding: 50px;
+}

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-5">
   <p class="h1"><%= @question.title %></p>
   <hr>
   <div class="row">
@@ -12,7 +12,7 @@
         <span>
           <small>asked <%= time_ago_in_words @question.created_at %> ago</small>
           <small><%= link_to @question.user.name, user_path(@question.user.id) %></small>
-          <%= image_tag @question.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail' %>
+          <%= image_tag @question.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail rounded-circle' %>
         </span>
       </div>
     </div>
@@ -36,7 +36,7 @@
           <span>
             <small>asked <%= time_ago_in_words answer.created_at %> ago</small>
             <small><%= link_to answer.user.name, user_path(answer.user.id) %></small>
-            <%= image_tag answer.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail' %>
+            <%= image_tag answer.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail rounded-circle' %>
           </span>
         </div> 
       </div>
