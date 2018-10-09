@@ -1,1 +1,31 @@
-<h1>All users list</h1>
+<div class="container">
+  <div class="row">
+
+      <div class="container-fluid">
+        <div class="row">
+
+              <div class="container">
+                <div class="page-header">
+                  <h1>All users list</h1>
+                </div>
+              </div>
+
+                <% @users.each do |user| %>
+                  <div class ="col-md-3 text-center ">
+                    <div class="tweet-item clearfix">
+                      <%= image_tag user.avatar, width:'100px'%>              
+                      <h2><%= user.name %></h2><br>
+                      <h4>Questions: <%= user.questions.size %></h4><br>
+                      <h4>Answers: <%= user.answers.size %></h4><br>
+                      <h4>Favorite: <%= user.favorites.size %></h4><br>
+                      <h4><%= link_to 'Edit', edit_user_path(user) , class: 'btn btn-primary' %></h4>
+                      <h4><%= link_to "Delete", user, method: :delete, class: 'btn btn-primary', data:{ confirm: "You sure?"} %></h4>   
+                    </div>
+                  </div>
+                <% end %>
+
+
+
+  </div>
+</div>
+
