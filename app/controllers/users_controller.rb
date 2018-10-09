@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     if @user
-      @user.update(user_proflie_params)
+      @user.update!(user_proflie_params)
       flash[:notice] = "Your Profile Has Been Updated !"
       redirect_to user_path(@user)
     else
