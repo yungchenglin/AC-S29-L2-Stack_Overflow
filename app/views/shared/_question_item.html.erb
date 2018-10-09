@@ -2,9 +2,10 @@
       <div class="row p-3">
         <div class="col-md-3 align-self-center">
           <div class="text-center">
-            <%= link_to "#{question.question_upvotes.size}<br>Votes".html_safe, question_path(question.id), class: "btn btn-outline-secondary m-3" %>
-            <%= link_to "#{question.answers.size}<br>Answers".html_safe, question_path(question.id), class: "btn btn-outline-success m-3" %>
-            <%= link_to "#{question.favorites.size}<br>Favorites".html_safe, question_path(question.id), class: "btn btn-outline-primary m-3" %>    
+            <%= link_to "#{question.question_upvotes.size}<br>Votes".html_safe, question_upvote_question_path(question), method: :post, class: "btn btn-outline-secondary m-3" %>
+            <%= link_to "#{question.answers.size}<br>Answers".html_safe, question_path(question), class: "btn btn-outline-success m-3" %>
+            <%= link_to "#{question.favorites.size}<br>Favorites".html_safe, favorite_question_path(question), method: :post,class: "btn btn-outline-primary m-3" %>    
+
           </div>
         </div>
         <div class="col-md-9 align-self-center pt-3">
@@ -15,6 +16,9 @@
               <small>asked <%= time_ago_in_words question.created_at %> ago</small>
               <small><%= link_to question.user.name, user_path(question.user.id) %></small>
               <%= image_tag question.user.avatar, size: '100x100',  class: 'img-fluid img-thumbnail' %>
+
+                  <%= link_to "Delete", question, method: :delete, data:{ confirm: "Are you sure?"} %>
+      
             </span>
           </div>
         </div>

@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
   before_action :redirect_to_sign_up_page, only: [:create, :favorite, :unfavorite, :question_upvote, :question_downvote]
-  before_action :set_question, only: [:show, :favorite, :unfavorite, :question_upvote, :question_downvote]
+  before_action :set_question, only: [:show, :destroy, :favorite, :unfavorite, :question_upvote, :question_downvote]
+
+
+
 
 
   
@@ -28,6 +31,14 @@ class QuestionsController < ApplicationController
     #@question = Question.find_by(id: params[:id]) 加入before_action預先執行
     @answers = @question.answers.order(created_at: :asc)
     @answer = Answer.new
+  end
+
+  def destroy
+
+       @question.destroy
+       flash[:alert] = "Question was deleted."
+       redirect_to root_path
+
   end
 
   # POST /questions/:id/favorite
@@ -77,6 +88,7 @@ private
       redirect_to new_user_registration_path
     end
   end
+
 
 
 end
