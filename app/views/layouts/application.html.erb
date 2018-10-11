@@ -17,7 +17,7 @@
         <!--Search Bar for Tag -->
         <li class="nav-item">
           <span class="nav-link">
-            <%= form_tag tags_path, method: :get do %>
+            <%= form_tag("/search", method: :get) do %>
               <%= text_field_tag :search, params[:search], placeholder: "Search by tag..." %>
               <%= submit_tag 'Search', name: nil %>
             <% end %>
@@ -63,6 +63,7 @@
         <%= yield :jumbotron %>
       </header>
       <div class="row">
+        <!--no side bar for user authentification page-->
         <% if current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
           <article class="col-md-12 col-sm-12 mx-auto">
             <%= yield %>
@@ -70,7 +71,7 @@
         <% else %>
           <div class="col-md-2 col-sm-12">
             <!-- sidecar -->   
-            <aside class= "mx-auto border-right p-0">
+            <aside class= "mx-auto border-right mt-3">
               <%= yield :sidebar %>
             </aside>
           </div>
