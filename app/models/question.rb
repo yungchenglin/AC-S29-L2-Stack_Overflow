@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   belongs_to :user, counter_cache: :questions_count
   has_many :answers, dependent: :destroy
-  has_many :question_tags
+  has_many :question_tags, dependent: :destroy
   has_many :tags, through: :question_tags
   has_many :question_upvotes, dependent: :destroy
   has_many :upvote_users, through: :question_upvotes, source: :user
@@ -19,4 +19,6 @@ class Question < ApplicationRecord
       false
     end
   end
+
+  
 end

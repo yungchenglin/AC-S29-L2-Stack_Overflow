@@ -10,6 +10,9 @@
     <div class="col-md-9 align-self-center pt-3">
       <h3><%= link_to question.title, question_path(question.id) %></h3><br>
       <p><%= question.description.truncate(100)%></p><br>
+      <% question.tags.each do |tag| %>
+        <span class="badge badge-pill badge-secondary"><%= tag.name %></span>
+      <% end %>
       <div class="text-right">
         <span>
           <small>asked <%= time_ago_in_words question.created_at %> ago</small>
