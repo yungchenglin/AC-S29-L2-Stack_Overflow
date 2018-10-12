@@ -1,28 +1,30 @@
-<h1>Please write your question</h1>
+<!-- Add side bar for all pages except user authetication page -->
+<%= render partial: 'shared/sidebar' %>
 
 <!-- Question form --> 
-
 <div class ="container">
-    <div class ="col-md-8">
-
-        <%= form_for @question do |f| %>
-
-          <div class="from-group" >
-            <%= f.label :title,  "Title" %>
-            <%= f.text_field :title, class: "form-control" %>
-          </div> 
-
-          <div class="from-group" >
-            <%= f.label :description,  "Description" %>
-            <%= f.text_area :description, rows: "5", class: "form-control" %>
-          </div> 
-
-          <div class="from-group float-right" >
-            <%= f.submit "Creat new Question",class: "btn btn-primary" %>
-            <%= link_to "Back",root_path, class: "btn btn-primary " %>
-          </div>
-
-        <% end %>
+  <div class="new_question_form">
+  <%= form_for @question do |f| %>
+    <div class="form-group" >
+      <%= f.label :title,  "Title" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div> 
+    <div class="form-group" >
+      <%= f.label :description,  "Description" %>
+      <%= f.text_area :description, rows: "5", class: "form-control" %>
     </div>
+    <div class="form-group mb-3"> 
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, {prompt: true}) do |cb| %>
+      <div class="form-check form-check-inline">
+        <%= cb.check_box class: 'check_box' %>
+        <%= cb.label class: 'form-check-label' %>
+      </div>
+      <% end %>
+    </div>
+    <br>
+    <div class="form-group float-right" >
+      <%= f.submit "Submit",class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
   </div>
 </div>    

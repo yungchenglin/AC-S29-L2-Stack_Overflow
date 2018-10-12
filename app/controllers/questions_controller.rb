@@ -5,18 +5,21 @@ class QuestionsController < ApplicationController
 
   
   def index
-     @questions = Question.order(created_at: :desc).page(params[:page]).per(10)
+     @questions = Question.order(updated_at: :desc).page(params[:page]).per(10)
      @tags = Tag.all
   end
 
   def new
     @question = Question.new
+    @tags = Tag.all
+
   end
 
   def create
     @user = current_user
     @question = current_user.questions.build(question_params)
-    if @question.save
+    if @question
+      @question.save
       flash[:notice] = "Question Update"
       redirect_to questions_path
     else
@@ -76,14 +79,9 @@ private
   end
 
   def question_params
-    params.require(:question).permit(:title, :description)
+    params.require(:question).permit(:title, :description, {:tag_ids=>[]})
   end
   
-  def redirect_to_sign_up_page
-    if !user_signed_in?
-      redirect_to new_user_registration_path
-    end
-  end
 
 end
 

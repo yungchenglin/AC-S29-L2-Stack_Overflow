@@ -37,6 +37,10 @@
  }
 
 // HOVER
+#sidebar li a{
+  font-size: 26px;
+  color: #696969;
+}
 #sidebar li:hover {
   background-color: rgba(255, 0, 0, 0.3);
   a{
@@ -75,4 +79,17 @@
 .jumbotron .back_img .jumbo_overlay .jumbo_text {
   color: white;
   padding: 50px;
+}
+
+// NEW QUESTION FORM
+.new_question_form {
+  width: 70%;
+  font-size: 24px;
+}
+
+// CHECK BOX
+.check_box {
+  margin-right: 10px;
+  width: 2rem;
+  height: 2rem;
 }

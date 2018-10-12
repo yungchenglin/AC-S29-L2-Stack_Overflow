@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   end 
 
 
-  get "/tags", to: "tags#search"
+  get "/search", to: "tags#search"
+  resources :tags, only: [:index, :show] 
+
   resources :users, only: [:edit, :show, :index]
 
 
