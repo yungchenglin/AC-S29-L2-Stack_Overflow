@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   root "questions#index"
 
-  resources :questions, only: [:index, :new, :create, :show ] do
-    resources :answers, only: [:create] do
+  resources :questions, only: [:index, :new, :create, :show, :destroy ] do
+    resources :answers, only: [:create, :destroy ] do
       member do
         post :answer_upvote
         post :answer_downvote
@@ -15,14 +15,18 @@ Rails.application.routes.draw do
     member do
         post :favorite
         post :unfavorite
+
         post :question_downvote
         post :question_upvote
     end
   end 
 
+
   get "/search", to: "tags#search"
   resources :tags, only: [:index, :show] 
+
   resources :users, only: [:edit, :show, :index]
+
 
 
   namespace :admin do

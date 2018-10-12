@@ -19,6 +19,4 @@ class Question < ApplicationRecord
       false
     end
   end
-
-  
 end
