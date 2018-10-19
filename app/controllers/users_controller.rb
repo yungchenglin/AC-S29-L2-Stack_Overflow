@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+
   before_action :redirect_to_sign_up_page, except: [:index, :show]
   before_action :find_user, only: [:show, :edit, :update]
+
 
   def index
     @users = User.all
@@ -22,11 +24,19 @@ class UsersController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+ 
+  def destroy
+    @user.destroy
+    flash[:alert] = "User was deleted."
+    redirect_to root_path
+  end
 
   private
+  
   def user_proflie_params
     params.require(:user).permit(:name, :company, :title, :website, :twitter, :github, :introduction, :avatar)
   end
+
   def find_user
     @user = User.find(params[:id])
   end
