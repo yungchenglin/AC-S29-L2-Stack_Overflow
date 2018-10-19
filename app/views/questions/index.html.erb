@@ -1,25 +1,11 @@
-<!-- Add Jumbotron on the top of question index page -->
-<%= content_for :jumbotron do %> 
-  <div class="jumbotron">
-    <div class="back_img">
-    <div class="jumbo_overlay">
-    <div class="jumbo_text">
-      <h1 class="display-4">Learn, Share, Build</h1>
-      <p class="lead">This is a simple stackoverflow clone website, welcome to join our largest developer community !</p>
-      <br><br>
-      <p>Let's start here by asking questions !</p>
-      <p class="lead">
-        <%= link_to 'Ask Question', new_question_path, class: "btn btn-primary btn-lg" %>
-      </p>
-    </div>
-    </div>
-  </div>
-<% end %>
-
-<!-- Add side bar for all pages except user authetication page -->
-<%= render partial: 'shared/sidebar' %>
-  
 <!-- Iteration for question lists -->
 <div>
  <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
 </div>  
+
+<div class="d-flex justify-content-center p-5">
+  <ul class="pagination">
+    <%= paginate @questions %>
+  </ul> 
+</div>
+

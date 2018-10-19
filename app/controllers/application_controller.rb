@@ -17,4 +17,11 @@ private
     end
   end
 
+  def redirect_to_sign_up_page
+    if !user_signed_in?
+      redirect_to new_user_registration_path
+    end
+  end
+
+
 end

@@ -1,7 +1,5 @@
 <!-- Iteration for tagged question lists by search -->
 <div class="pt-3">
-<!-- Add side bar for all pages except user authetication page -->
- <%= render partial: 'shared/sidebar' %>
 <!-- Iteration for tagged question lists by search -->
  <%= render :partial => "shared/question_item", :collection => @questions, :as => :question %>
 </div>  

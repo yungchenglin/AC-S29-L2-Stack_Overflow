@@ -1,0 +1,16 @@
+<%= content_for :jumbortron do %> 
+    <div class="jumbotron">
+      <div class="back_img">
+      <div class="jumbo_overlay">
+      <div class="jumbo_text">
+        <h1 class="display-4">Learn, Share, Build</h1>
+        <p class="lead">This is a simple stackoverflow clone website, welcome to join our largest developer community !</p>
+        <br><br>
+        <p>Let's start here by asking questions !</p>
+        <p class="lead">
+          <%= link_to 'Ask Question', new_question_path, class: "btn btn-tomato btn-lg" %>
+        </p>
+      </div>
+      </div>
+    </div>
+<% end %>

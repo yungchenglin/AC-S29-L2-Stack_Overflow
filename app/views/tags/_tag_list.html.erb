@@ -1,0 +1,6 @@
+<div class="h1"><%= @tag.name %></div>
+<br><hr>
+
+<%= render partial: 'shared/question_item', :collection => @tagged_questions, :as => :question %>
+
+
