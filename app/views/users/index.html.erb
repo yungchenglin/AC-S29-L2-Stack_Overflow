@@ -1,0 +1,16 @@
+
+<div class="row p-3">
+  <% @users.each do |user| %>
+    <div class="card-group col-lg-3 col-md-4 col-sm-6 pb-5">
+      <div class="card p-2"> 
+        <span>
+          <%= image_tag user.avatar, size: '100x100', class: 'img-fluid img-thumbnail' %>
+          <span class="pl-5">Questions: <%=  user.questions.size %><br><%= link_to user.name, user_path(user.id) %></span>
+        </span>
+        <p class="card-text h5 pt-3">
+          <%= truncate(user.introduction, length: 50) %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

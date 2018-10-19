@@ -2,10 +2,16 @@ class QuestionsController < ApplicationController
   before_action :redirect_to_sign_up_page, only: [:new, :create, :favorite, :unfavorite, :question_upvote, :question_downvote]
   before_action :set_question, only: [:show, :favorite, :unfavorite, :question_upvote, :question_downvote]
   
+  def home
+    @questions = Question.order(updated_at: :desc).page(params[:page]).per(10)
+    @tags = Tag.all
+  end
+
   def index
      @questions = Question.order(updated_at: :desc).page(params[:page]).per(10)
      @tags = Tag.all
   end
+
 
   def new
     @question = Question.new

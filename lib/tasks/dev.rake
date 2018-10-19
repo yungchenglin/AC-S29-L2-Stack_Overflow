@@ -105,7 +105,7 @@ namespace :dev do
     Tag.destroy_all
     TAG_LIST = ["藝術", "科技", "趣味", "旅遊", "美食", "穿著"]
     TAG_LIST.each do |tag|
-      Tag.create!(name: tag)
+      Tag.create!(name: tag, description: FFaker::Lorem::sentence(5))
     end
 
     puts "Default Tags Created!"

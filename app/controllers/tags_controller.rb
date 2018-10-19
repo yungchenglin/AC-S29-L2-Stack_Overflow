@@ -1,5 +1,8 @@
 class TagsController < ApplicationController
+  before_action :find_tag , only: [:show]
+
   def index
+    @tags = Tag.all
   end
 
 
@@ -13,7 +16,12 @@ class TagsController < ApplicationController
   end
 
   def show
-   
+    @tagged_questions = @tag.questions
+  end
+
+  private
+  def find_tag
+    @tag = Tag.find(params[:id])
   end
 
 end

@@ -1,4 +1,20 @@
-<!-- Add side bar for all pages except user authetication page -->
-<%= render partial: 'shared/sidebar' %>
-<%= @questions.all %>
-<%= @tag.name %>
+<div id="tag_list">
+  <div class="row p-3">
+   <% @tags.each do |tag| %>
+     <div class="card-group col-md-4 col-sm-12 pb-5">
+       <div class="card p-3"> 
+         <p class="card-title">
+           <button type="button" class="btn btn-tomato m-3">
+             <span class="h4 p-2"><%= link_to tag.name, tag_path(tag.id), remote: true, class: 'tag_link' %></span>
+             <span class="badge badge-light"><%=  tag.questions.size %></span>
+           </button><br>
+         </p>
+         <p class="card-text h4">
+           <%= tag.description %>
+         </p>
+       </div>
+     </div>
+   <% end %>
+  </div>
+</div>
+

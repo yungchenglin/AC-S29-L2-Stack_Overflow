@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root "questions#index"
+  root "questions#home"
 
   resources :questions, only: [:index, :new, :create, :show ] do
     resources :answers, only: [:create] do
